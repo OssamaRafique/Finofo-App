@@ -13,7 +13,7 @@ export function AppLayout({ children }: React.PropsWithChildren) {
           </a>
         </header>
 
-        <main className="bg-white max-w-[85%] mx-auto p-8 md:p-12 my-10 rounded-lg shadow-2xl">
+        <main className="bg-white w-full md:max-w-[85%] mx-auto p-0 md:p-5 lg:p-10 my-10 rounded-lg shadow-2xl">
           {children}
         </main>
 
