@@ -41,8 +41,8 @@ export const FruitDashboard: React.FC = () => {
       )}
 
       {!loading && !error && (
-        <div className="flex p-4 gap-4">
-          <div className="w-2/3 flex flex-col gap-4">
+        <div className="flex flex-col lg:flex-row p-4 gap-4">
+          <div className="lg:w-2/3 flex flex-col gap-4">
             <div className="flex justify-between items-center">
               <FruitGroupBySelect />
               <Tabs
@@ -72,7 +72,7 @@ export const FruitDashboard: React.FC = () => {
               </CardContent>
             </Card>
           </div>
-          <div className="w-1/3">
+          <div className="lg:w-1/3">
             <FruitJar />
           </div>
         </div>
