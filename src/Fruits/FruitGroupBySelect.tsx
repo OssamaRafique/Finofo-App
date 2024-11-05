@@ -20,8 +20,11 @@ export const FruitGroupBySelect: React.FC = () => {
       value={groupBy}
       onValueChange={(value) => dispatch(setGroupBy(value as GroupBy))}
     >
-      <SelectTrigger className="w-[180px]">
-        <SelectValue placeholder="Group by" />
+      <SelectTrigger className="w-[240px] [&>span:first-child]:flex [&>span:first-child]:gap-2">
+        <SelectValue>
+          <span className="text-muted-foreground">Group by :</span>
+          <span>{groupBy}</span>
+        </SelectValue>
       </SelectTrigger>
       <SelectContent>
         <SelectItem value={GroupBy.None}>None</SelectItem>
