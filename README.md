@@ -1,50 +1,30 @@
-# React + TypeScript + Vite
+# Finofo App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple application built with **React** and **TypeScript** to display and manage a list of fruits. The app includes grouping, list/table views, and a fruit jar with calorie tracking and a pie chart.
 
-Currently, two official plugins are available:
+## Live Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Visit the live app here: [finofo-app.vercel.app](https://finofo-app.vercel.app)
 
-## Expanding the ESLint configuration
+## Screenshots
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+![Home - List View](https://github.com/OssamaRafique/Finofo-App/raw/main/public/screenshot-1.png)
+![Grouped View - Collapsible Sections](https://github.com/OssamaRafique/Finofo-App/raw/main/public/screenshot-2.png)
+![Table View - Grouped](https://github.com/OssamaRafique/Finofo-App/raw/main/public/screenshot-3.png)
+![Fruit Jar - Pie Chart](https://github.com/OssamaRafique/Finofo-App/raw/main/public/screenshot-4.png)
 
-- Configure the top-level `parserOptions` property like this:
+## Installation
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/OssamaRafique/Finofo-App.git
+   cd Finofo-App
+   ```
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+3. **Start the development server:**
+   ```bash
+   npm run dev
+   ```
