@@ -1,32 +1,23 @@
-import { Button } from "@/components/ui/button";
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
 import { GroupBy } from "@/enums/groupBy.enum";
-import { IFruit } from "@/interfaces/fruit.interface";
 import {
   selectFruitsArray,
   selectGroupBy,
   selectGroupedFruits,
 } from "@/redux/selectors";
-import { addMultipleFruitsToJar } from "@/redux/slices/jar.slice";
-import { AppDispatch } from "@/redux/store";
-import { ChevronRight, Plus } from "lucide-react";
-import { useDispatch, useSelector } from "react-redux";
+import { ChevronRight } from "lucide-react";
+import { useSelector } from "react-redux";
+import { FruitGroupAddButton } from "./FruitGroupAddButton";
 import { FruitList } from "./FruitList";
 
 export function FruitListDisplay() {
-  const dispatch = useDispatch<AppDispatch>();
   const groupBy = useSelector(selectGroupBy);
   const fruits = useSelector(selectFruitsArray);
   const groupedFruits = useSelector(selectGroupedFruits);
-
-  const handleAddAllGroupFruits = (groupFruits: IFruit[]) => {
-    const fruitsToAdd = groupFruits.map((fruit) => fruit.id);
-    dispatch(addMultipleFruitsToJar(fruitsToAdd));
-  };
 
   return (
     <>
@@ -42,17 +33,7 @@ export function FruitListDisplay() {
                   <span className="font-medium">{group.group}</span>
                 </div>
               </CollapsibleTrigger>
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  handleAddAllGroupFruits(group.fruits);
-                }}
-              >
-                <Plus className="h-4 w-4 mr-2" />
-                Add All
-              </Button>
+              <FruitGroupAddButton fruits={group.fruits} />
             </div>
             <CollapsibleContent className="pl-4 space-y-1 mt-1">
               <FruitList fruits={group.fruits} />

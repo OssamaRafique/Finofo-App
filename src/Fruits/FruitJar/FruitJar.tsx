@@ -7,6 +7,7 @@ import { Trash2 } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
 import { JarItem } from "./JarItem";
 import { PieChart } from "./PieChart";
+import { toast } from "react-toastify";
 
 export function FruitJar() {
   const dispatch = useDispatch();
@@ -15,6 +16,7 @@ export function FruitJar() {
 
   const handleClearJar = () => {
     dispatch(clearJar());
+    toast.success("Jar cleared");
   };
 
   return (

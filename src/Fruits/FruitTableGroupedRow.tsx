@@ -1,28 +1,16 @@
-import { IFruit } from "@/interfaces";
-import { Button } from "@/components/ui/button";
-import { ChevronDown } from "lucide-react";
-import { ChevronRight } from "lucide-react";
-import { Plus } from "lucide-react";
-import { TableCell } from "@/components/ui/table";
-import { FruitTableRow } from "./FruitTableRow";
-import { TableRow } from "@/components/ui/table";
+import { TableCell, TableRow } from "@/components/ui/table";
 import { IGroupedFruit } from "@/interfaces";
-import { addFruitToJar } from "@/redux/slices/jar.slice";
+import { ChevronDown, ChevronRight } from "lucide-react";
 import { useState } from "react";
-import { AppDispatch } from "@/redux/store";
-import { useDispatch } from "react-redux";
+import { FruitGroupAddButton } from "./FruitGroupAddButton";
+import { FruitTableRow } from "./FruitTableRow";
 
 export interface IFruitTableGroupedRowProps {
   group: IGroupedFruit;
 }
 
 export function FruitTableGroupedRow({ group }: IFruitTableGroupedRowProps) {
-  const dispatch = useDispatch<AppDispatch>();
   const [groupExpanded, setGroupExpanded] = useState<boolean>(false);
-
-  const handleAddAllFruitsToJar = (fruits: IFruit[]) => {
-    fruits.forEach((fruit) => dispatch(addFruitToJar(fruit.id)));
-  };
 
   return (
     <>
@@ -40,17 +28,7 @@ export function FruitTableGroupedRow({ group }: IFruitTableGroupedRowProps) {
               )}
               <span className="font-medium">{group.group}</span>
             </div>
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={(e) => {
-                e.stopPropagation();
-                handleAddAllFruitsToJar(group.fruits);
-              }}
-            >
-              <Plus className="h-4 w-4 mr-2" />
-              Add All
-            </Button>
+            <FruitGroupAddButton fruits={group.fruits} />
           </div>
         </TableCell>
       </TableRow>

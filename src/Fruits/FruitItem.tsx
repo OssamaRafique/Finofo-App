@@ -4,7 +4,7 @@ import { addFruitToJar } from "@/redux/slices/jar.slice";
 import { AppDispatch } from "@/redux/store";
 import { Plus } from "lucide-react";
 import { useDispatch } from "react-redux";
-
+import { toast } from "react-toastify";
 export interface IFruitItemProps {
   fruit: IFruit;
 }
@@ -14,6 +14,7 @@ export function FruitItem({ fruit }: IFruitItemProps) {
 
   const handleAddToJar = () => {
     dispatch(addFruitToJar(fruit.id));
+    toast.success("Added fruit to the jar");
   };
 
   return (

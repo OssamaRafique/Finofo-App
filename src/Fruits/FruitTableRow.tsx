@@ -2,9 +2,10 @@ import { Button } from "@/components/ui/button";
 import { TableCell, TableRow } from "@/components/ui/table";
 import { IFruit } from "@/interfaces";
 import { addFruitToJar } from "@/redux/slices/jar.slice";
-import { useDispatch } from "react-redux";
 import { AppDispatch } from "@/redux/store";
 import { Plus } from "lucide-react";
+import { useDispatch } from "react-redux";
+import { toast } from "react-toastify";
 
 export interface IFruitTableRowProps {
   fruit: IFruit;
@@ -15,6 +16,7 @@ export function FruitTableRow({ fruit }: IFruitTableRowProps) {
 
   const handleAddFruitToJar = () => {
     dispatch(addFruitToJar(fruit.id));
+    toast.success("Added fruit to the jar");
   };
 
   return (
